@@ -23,10 +23,9 @@ private:
     bool estaViradaParaCima;
 
     sf::RectangleShape forma;
-    sf::Text texto; // No SFML 3, isso exige uma fonte ao ser criado
+    sf::Text texto;
 
 public:
-    // ATUALIZAÇÃO: O construtor agora recebe a fonte tipográfica
     Carta(Valor v, Naipe n, const sf::Font& fonte);
 
     Naipe obterNaipe() const;
@@ -36,7 +35,6 @@ public:
     void definirPosicao(float x, float y);
     void definirViradaParaCima(bool viradaParaCima);
     
-    // ATUALIZAÇÃO: Não precisamos mais passar a fonte aqui, pois a carta já a possui
     void desenhar(sf::RenderWindow& janela);
 };
 

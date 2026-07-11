@@ -8,7 +8,7 @@
 class GameState {
 private:
     std::vector<Carta> cartasNaMesa;
-    std::optional<Naipe> naipeLider; // O naipe da primeira carta jogada na rodada
+    std::optional<Naipe> naipeLider; 
 
 public:
     void adicionarCartaNaMesa(Carta c);

@@ -19,7 +19,6 @@ void BotMonteCarlo::observarJogada(int turnoDoJogador, Carta jogada, std::option
         espadasQJogada = true;
     }
     
-    // Se a carta jogada for de um naipe diferente do líder, é uma "jogada cancelada"
     if (naipeLider.has_value() && jogada.obterNaipe() != naipeLider.value()) {
         jogadoresSemNaipe[turnoDoJogador][naipeLider.value()] = true;
     }
@@ -84,14 +83,13 @@ std::vector<Carta> BotMonteCarlo::escolherCartasParaPassar() {
         } else break;
     }
 
-    mao = copiaMao; // Atualiza a mão oficial
+    mao = copiaMao;
     return passadas;
 }
 
 Carta BotMonteCarlo::escolherCarta(std::optional<Naipe> naipeLider, const std::vector<Carta>& cartasNaMesa) {
     int indiceEscolhido = -1; 
 
-    // Regra Obrigatória: 2 de paus na primeira rodada
     if (!naipeLider.has_value()) {
         for (int i = 0; i < mao.size(); i++) {
             if (mao[i].obterNaipe() == Naipe::Paus && mao[i].obterValor() == Valor::Dois) {
@@ -163,7 +161,7 @@ Carta BotMonteCarlo::escolherCarta(std::optional<Naipe> naipeLider, const std::v
                 if(mao[i].obterNaipe() == naipeObrigatorio) {
                     int v = (int)mao[i].obterValor();
                     
-                    if(v < menorAbsoluto) { // Guarda a menor carta de todas como segurança
+                    if(v < menorAbsoluto) { 
                         menorAbsoluto = v;
                         indiceMenorAbsoluto = i;
                     }
@@ -175,12 +173,10 @@ Carta BotMonteCarlo::escolherCarta(std::optional<Naipe> naipeLider, const std::v
                 }
             }
 
-            // Se achou uma carta segura, joga ela. Senão, joga a mais baixa de todas.
             if(indiceMenor != -1) indiceEscolhido = indiceMenor; 
             else indiceEscolhido = indiceMenorAbsoluto;
 
         } else {
-            // JOGADA CANCELADA (Não tem o naipe)
             // 1. Jogar Q_espadas
             for(int i = 0; i < mao.size(); i++) {
                 if(mao[i].obterNaipe() == Naipe::Espadas && mao[i].obterValor() == Valor::Dama) {

@@ -7,7 +7,6 @@
 class BotMonteCarlo : public Jogador {
 private:
     bool espadasQJogada;
-    // Mapeia o jogador (0 a 3) e o Naipe. Se for true, significa que o jogador NÃO tem o naipe (jogada cancelada)
     std::map<Naipe, bool> jogadoresSemNaipe[4]; 
 
 public:
@@ -16,7 +15,6 @@ public:
     Carta escolherCarta(std::optional<Naipe> naipeLider, const std::vector<Carta>& cartasNaMesa) override;
     std::vector<Carta> escolherCartasParaPassar() override;
     
-    // Funções de memória
     void observarJogada(int turnoDoJogador, Carta jogada, std::optional<Naipe> naipeLider) override;
     void limparMemoria() override;
 };

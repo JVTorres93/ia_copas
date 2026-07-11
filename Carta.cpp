@@ -1,8 +1,6 @@
 #include "Carta.h"
 
-// ATUALIZAÇÃO: Inicializamos 'texto(fonte)' diretamente na lista de inicialização
 Carta::Carta(Valor v, Naipe n, const sf::Font& fonte) : valor(v), naipe(n), estaViradaParaCima(true), texto(fonte) {
-    // ATUALIZAÇÃO: Uso de chaves {} para criar o Vector2f exigido no SFML 3
     forma.setSize(sf::Vector2f({80.f, 120.f})); 
     forma.setFillColor(sf::Color::White);
     forma.setOutlineColor(sf::Color::Black);
@@ -19,7 +17,6 @@ int Carta::obterPontos() const {
 }
 
 void Carta::definirPosicao(float x, float y) {
-    // ATUALIZAÇÃO: setPosition agora exige Vector2f explícito
     forma.setPosition(sf::Vector2f({x, y}));
     texto.setPosition(sf::Vector2f({x + 5.f, y + 5.f})); 
 }

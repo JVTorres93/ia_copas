@@ -7,7 +7,6 @@ class BotRuleBased : public Jogador {
 public:
     BotRuleBased(std::string n);
     
-    // ATUALIZAÇÃO: Assinatura agora inclui const std::vector<Carta>& cartasNaMesa
     Carta escolherCarta(std::optional<Naipe> naipeLider, const std::vector<Carta>& cartasNaMesa) override;
     std::vector<Carta> escolherCartasParaPassar() override;
 };

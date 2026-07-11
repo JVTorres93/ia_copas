@@ -1,7 +1,6 @@
 #include "GameState.h"
 
 void GameState::adicionarCartaNaMesa(Carta c) {
-    // Se a mesa estiver vazia, esta carta define o naipe obrigatório
     if (cartasNaMesa.empty()) {
         naipeLider = c.obterNaipe(); 
     }
@@ -10,7 +9,7 @@ void GameState::adicionarCartaNaMesa(Carta c) {
 
 void GameState::limparMesa() {
     cartasNaMesa.clear();
-    naipeLider = std::nullopt; // Remove a obrigatoriedade de naipe
+    naipeLider = std::nullopt;
 }
 
 std::optional<Naipe> GameState::obterNaipeLider() const {

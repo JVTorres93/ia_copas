@@ -43,7 +43,6 @@ std::vector<Carta> BotRuleBased::escolherCartasParaPassar() {
     return passadas;
 }
 
-// ATUALIZAÇÃO: Adicionado o parâmetro cartasNaMesa aqui também
 Carta BotRuleBased::escolherCarta(std::optional<Naipe> naipeLider, const std::vector<Carta>& cartasNaMesa) {
     int indiceEscolhido = -1; 
 

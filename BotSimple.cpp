@@ -2,7 +2,6 @@
 
 BotSimple::BotSimple(std::string n) : Jogador(n) {}
 
-// ATUALIZAÇÃO: Adicionado o parâmetro cartasNaMesa aqui também
 Carta BotSimple::escolherCarta(std::optional<Naipe> naipeLider, const std::vector<Carta>& cartasNaMesa) {
     int indiceEscolhido = 0; 
     if (!naipeLider.has_value()) {
